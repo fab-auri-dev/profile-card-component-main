@@ -1,0 +1,235 @@
+:root {
+    
+    --dark-cyan: hsl( 185, 75%, 39% );
+    --very-dark-desaturated-blue: hsl( 229, 23%, 23% );
+    --dark-grayish-blue: hsl( 227, 10%, 46% );
+    --dark-gray: hsl( 0, 0%, 59% );    
+
+    /* weights: 400, 700 */
+    --ff-kumbh-sans: 'Kumbh Sans';
+    --font-size: 1.125rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var( --dark-cyan );
+
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-pattern-top {
+    position: absolute;
+    top: -450px;
+    left: -80px;
+    z-index: 1;
+    overflow: hidden;
+
+}
+.bg-pattern-bottom {
+    position: absolute;
+    bottom: -450px;
+    right: -80px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.rotate {
+    animation-name: spin;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate( 360deg );
+    }
+}
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate( 360deg );
+    }
+}
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate( 360deg );
+        transform: rotate( 360deg );
+    }
+}
+
+
+.profile-card-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+.profile-card-content {
+    position: relative;
+}
+
+.profile-card-pattern {
+    background-color: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.pattern {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.profile-card-avatar {
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate( -50%, -50% );
+    z-index: 2;
+}
+
+.avatar {
+    border: .35rem solid white;
+    border-radius: 50%;
+}
+
+.profile-card-user-info {
+    position: relative;
+
+    background-color: white;
+
+    text-align: center;
+}
+
+.user-info {
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate( -50%, -50% );
+
+    margin-block: 1rem;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    color: var( --very-dark-desaturated-blue );
+
+    font-family: var( --ff-kumbh-sans );
+    font-weight: 700;
+}
+
+.age {
+    margin-left: .5rem;
+
+    color: var( --dark-grayish-blue );
+
+    font-family: var( --ff-kumbh-sans );
+    font-weight: 400;
+}
+
+.city {
+    margin-top: .25rem;
+
+    color: var( --dark-grayish-blue );
+
+    font-family: var( --ff-kumbh-sans );
+    font-weight: 400;
+    font-size: .9rem;
+}
+
+.profile-card-social {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding: 1.5rem;
+
+    background-color: white;
+
+    border: .5px solid gainsboro;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    text-align: center;
+}
+
+.social {
+    margin-inline: 1rem;
+}
+
+.social h3 {
+    color: var( --very-dark-desaturated-blue );
+
+    font-family: var( --ff-kumbh-sans );
+    font-weight: 700;
+}
+.social p {
+    color: var( --dark-grayish-blue );
+
+    letter-spacing: .125rem;
+    font-family: var( --ff-kumbh-sans );
+    font-weight: 400;
+    font-size: .7rem;
+
+    margin-top: .25rem;
+
+}
+
+@media only screen and ( max-width: 800px ) {
+    .bg-pattern-top {
+        top: -600px;
+        left: -500px;
+    }     
+    .bg-pattern-bottom {
+        bottom: -600px;
+        right: -500px;
+    }    
+}
+@media only screen and ( max-width: 600px ) {
+    .bg-pattern-top {
+        top: -600px;
+        left: -700px;
+    }     
+    .bg-pattern-bottom {
+        bottom: -600px;
+        right: -700px;
+    }
+}
+@media only screen and ( max-width: 350px ){
+	.profile-card-wrapper {
+        overflow: hidden;
+        margin: .5rem;
+        width: 95%;
+        border-top-right-radius: 1rem;
+    }
+    .profile-card-social {
+        flex-direction: column;
+    }
+    .social {
+        margin-inline: 0;
+        margin-block: .5rem;
+    }
+    .user {
+        flex-direction: column;
+    }    
+    .age {
+        margin-left: 0;
+    }    
+}
