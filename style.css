@@ -11,24 +11,24 @@
 }
 
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    font-family: var( --ff-kumbh-sans );
-    font-size: var( --font-size );
+    height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    height: 100vh;
+    font-family: var( --ff-kumbh-sans );
+    font-size: var( --font-size );
 
-    background: url( ./images/bg-pattern-top.svg ), url( ./images/bg-pattern-bottom.svg );
-    background-position: right 52vw bottom 35vh, left 48vw top 52vh;
+	background-color: var(--dark-cyan);
+    background-image: url('images/bg-pattern-top.svg'), url('images/bg-pattern-bottom.svg');
     background-repeat: no-repeat, no-repeat;
-    background-color: var( --dark-cyan );
+    background-position: right 50vw bottom 50vh, left 50vw top 50vh;
     animation: gradient 20s ease infinite;
 }
 
@@ -42,6 +42,18 @@ body {
     100% {
         background-position: right 52vw bottom 35vh, left 48vw top 52vh;
     }
+}
+
+.profile-card-wrapper {
+	background-color: white;
+
+	box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 50%);
+
+	border-radius: 1rem;
+
+    margin: 1rem;
+
+	overflow: hidden;
 }
 
 .profile-card-user-content {
@@ -80,10 +92,8 @@ body {
     align-items: center;
 
     background-color: white;
-}
 
-.space {
-    padding: 1.25rem;
+    position: relative;
 }
 
 .user {
@@ -92,73 +102,64 @@ body {
     justify-content: center;
     align-items: center;
 
-    padding: 1.25rem;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate( -50%, -50% );
 }
 
 .user p {
     color: var( --dark-grayish-blue );
 
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: 400;
 }
 
 .name-age {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
 
     font-size: 1rem;
-
     margin-bottom: .5rem;
 }
 
 .name-age .age {
     color: var( --dark-grayish-blue );
 
+    font-size: 1rem;
     font-weight: 400;
 
     margin-left: .5rem;
 }
 
-.profile-card-user-social {
-    position: relative;
+.user-status {
+	display: flex;
+	justify-content: space-around;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: white;
-    border-top: 1px solid lightgray;
-
-    padding: 2rem;
-
-    text-align: center;
-
-    border-bottom-right-radius: 1rem;
-    border-bottom-left-radius: 1rem;
+	border-top: hsl(0, 0%, 59%, 0.6) solid 1px;
+    padding-inline: 1rem;
 }
 
-.social {
-    width: 100%;
-
-    font-size: 1rem;
-
-    display: flex;
+.user-status div:nth-child(1n) {
+	width: 25%;
+	padding: 1.2rem 0;
 }
 
-.social div h3 {
-    margin-bottom: .25rem;
+.user-status div:nth-child(1n) > h1 {
+	font-size: 1rem;
+	text-align: center;
+	margin: 0;
 }
 
-.social div p {
+.user-status div:nth-child(1n) > p {
+	text-align: center;
     letter-spacing: .125rem;
-    color: var( --dark-grayish-blue );
-    font-size: .7rem;
+	font-size: 0.6rem;
+	margin: 0.2rem 0;
+    color:  var(--dark-gray);
 }
 
-.likes {
-    margin: 0 auto;
-}
 
 @media only screen and ( max-width: 350px ){
 	.profile-card-wrapper {
@@ -166,5 +167,26 @@ body {
         margin: .5rem;
         width: 95%;
         border-top-right-radius: 1rem;
+        text-align: center;
     }
+    .user {
+        top: 70%;
+    }    
+    .name-age {
+        flex-direction: column;
+        align-items: center;
+    }
+    .name-age .age {
+        margin-left: 0;
+        margin-top: 0.5rem;
+    }
+    .user-status {
+        margin-top: 1rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .user-status div:nth-child(1n) {
+        padding: 1rem 0;
+    }    
 }
